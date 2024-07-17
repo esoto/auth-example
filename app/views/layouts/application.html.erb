@@ -15,7 +15,7 @@
     <div><%= alert %></div>
     <% if user_signed_in? %>
       <div>
-        <%= link_to "Password reset", edit_password_path %>
+        <%= link_to "Edit Password", edit_password_path %>
       </div>
       <div>
         <%= button_to "Sign Out", session_path, method: :delete %>
