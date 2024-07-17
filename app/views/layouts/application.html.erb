@@ -11,6 +11,24 @@
   </head>
 
   <body>
+    <div><%= notice %></div>
+    <div><%= alert %></div>
+    <% if user_signed_in? %>
+      <div>
+        <%= link_to "Password reset", edit_password_path %>
+      </div>
+      <div>
+        <%= button_to "Sign Out", session_path, method: :delete %>
+      </div>
+    <% else %>
+      <div>
+        <%= link_to "Sign In", new_session_path %>
+      </div>
+      <div>
+        <%= link_to "Sign Up", new_registration_path %>
+      </div>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
