@@ -1,0 +1,12 @@
+<h1>Request Magic Link</h1>
+
+<%= form_with model: @user, url: login_path do |form| %>
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.submit "Send Magic Link" %>
+  </div>
+<% end %>

@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
 
   def login(user)
+    user.touch(:last_sign_in_at)
     Current.user = user
     reset_session
     session[:user_id] = user.id

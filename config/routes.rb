@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resource :session
   resource :password_reset
   resource :password
+  resource :login, only: [:show, :create, :new]
 end
