@@ -5,33 +5,42 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <div><%= notice %></div>
-    <div><%= alert %></div>
-    <% if user_signed_in? %>
-      <div>
-        <%= link_to "Edit Password", edit_password_path %>
+    <header class="header">
+      <nav class="nav">
+        <% if user_signed_in? %>
+          <div class="self-center">
+            <%= link_to "Edit Password", edit_password_path %>
+          </div>
+          <div class="self-center">
+            <%= button_to "Sign Out", session_path, method: :delete %>
+          </div>
+        <% else %>
+          <div class="self-center">
+            <%= link_to "Sign In", new_session_path %>
+          </div>
+          <div class="self-center">
+            <%= link_to "Get Magic link", new_login_path %>
+          </div>
+          <div class="self-center">
+            <%= link_to "Sign Up", new_registration_path %>
+          </div>
+        <% end %>
+      </nav>
+    </header>
+    <div class="content">
+      <div class="prose mx-auto">
+        <div><%= notice %></div>
+        <div><%= alert %></div>
+
+        <%= yield %>
       </div>
-      <div>
-        <%= button_to "Sign Out", session_path, method: :delete %>
-      </div>
-    <% else %>
-      <div>
-        <%= link_to "Sign In", new_session_path %>
-      </div>
-      <div>
-        <%= link_to "Get Magic link", new_login_path %>
-      </div>
-      <div>
-        <%= link_to "Sign Up", new_registration_path %>
-      </div>
-    <% end %>
-    
-    <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-200;
+  }
+}
+
+*/
+
+.header {
+  height: 70px;
+  overflow: hidden;
+  width: 100%;
+  background-color: darkgrey;
+  color: white;
+
+  .nav {
+    height: 70px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    div {
+      margin-right: 20px;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: lightgrey;
+}
